@@ -1,252 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hospiscare Choir</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    :root {
-      --primary: #7c1f52;
-      --primary-dark: #5c163c;
-      --accent: #f4b41a;
-      --bg: #f7f7f7;
-      --text: #333;
-    }
+    <meta charset="UTF-8">
+    <title>Hospiscare Choir</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    * {
-      box-sizing: border-box;
-    }
+    <!-- Playfair Display (headings) + Montserrat (body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #7FDBFF; /* Poster background colour */
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+            text-align: center;
+            line-height: 1.6;
+        }
 
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 1rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.2rem;
+            color: #222;
+        }
 
-    .brand h1 {
-      margin: 0;
-      font-size: 1.4rem;
-      letter-spacing: 0.03em;
-    }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #222;
+        }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-size: 0.95rem;
-    }
+        .tagline {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+        p {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
 
-    .hero {
-      background: linear-gradient(
-        135deg,
-        var(--primary) 0%,
-        var(--primary-dark) 40%,
-        #222 100%
-      );
-      color: #fff;
-      padding: 3rem 1.5rem;
-    }
+        .contact-box {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2.5rem;
+        }
 
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-      gap: 2rem;
-      align-items: center;
-    }
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
 
-    .hero h2 {
-      margin-top: 0;
-      font-size: 2rem;
-    }
-
-    .hero p {
-      margin-bottom: 1rem;
-    }
-
-    .hero-highlight {
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .hero-card h3 {
-      margin-top: 0;
-      font-size: 1.2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      border: none;
-      background: var(--accent);
-      color: #222;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
-
-    .btn:hover {
-      background: #f1a000;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-      background: #fff;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    }
-
-    section h2 {
-      margin-top: 0;
-      font-size: 1.4rem;
-      color: var(--primary-dark);
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-      gap: 1.5rem;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: #eee;
-      font-size: 0.8rem;
-      margin-right: 0.4rem;
-    }
-
-    .notice {
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      background: #fff7d9;
-      border: 1px solid #f4b41a;
-      font-size: 0.95rem;
-    }
-
-    .contact-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-    }
-
-    .contact-list li {
-      margin-bottom: 0.4rem;
-    }
-
-    a {
-      color: var(--primary-dark);
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #222;
-      color: #ccc;
-      padding: 1.5rem;
-      font-size: 0.85rem;
-    }
-
-    footer .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    @media (max-width: 800px) {
-      .hero-inner,
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      header {
-        position: static;
-      }
-
-      nav {
-        margin-top: 0.5rem;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 0.75rem;
-      }
-    }
-  </style>
+        a {
+            color: #222;
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="brand">
-      <div>
-        <h1>Hospiscare Choir</h1>
-      </div>
-      <nav aria-label="Main navigation">
-        <a href="#about">Home</a>
-        <a href="#join">Join Us</a>
-        <a href="#resources">Choir Resources</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-    <section class="hero">
-      <div class="hero-inner">
-        <div>
-          <h2>Hospiscare Choir Welcomes You</h2>
-          <p class="hero-highlight">Singing to support Hospiscare</p>
-          <p>
-            Hospiscare Choir is an independent charity choir created in February 2015 by
-            Brian Clifton, who worked in the Income Generation Team at Searle House Hospice,
-            Exeter, the base of Hospiscare.
-          </p>
-          <p>
-            Members of the choir are staff, nurses, doctors, volunteers and supporters of
-            Hospiscare, old and new. We sing an eclectic mix of popular songs and perform
-            at Hospiscare events
+<body>
+    <div class="container">
+
+        <h1>Hospiscare Choir</h1>
+        <h2>Welcomes you</h2>
+
+        <div class="tagline">Singing to support Hospiscare</div>
+
+        <p>
+            Hospiscare Choir is an independent charity choir which was created in February 2015 
+            by Brian Clifton who worked in the Income Generation Team at Searle House Hospice, 
+            Exeter, which is the base of Hospiscare. Members of the Choir are staff, nurses, 
+            doctors, volunteers and supporters of Hospiscare, old and new.
+        </p>
+
+        <p>
+            The choir sings an eclectic mix of popular songs. We perform at Hospiscare events 
+            and fundraisers, at Hospiscare collections and will consider requests to sing at 
+            non-Hospiscare events for a donation to the charity. The choir makes regular 
+            donations to support Hospiscare's work in Exeter, Mid and East Devon.
+        </p>
+
+        <p>
+            We do not ask prospective members to audition but it does help if you can either 
+            read music or learn through listening, feel confident learning songs off by heart 
+            or have previous experience of singing/being in a choir.
+        </p>
+
+        <p>
+            We practice every Thursday in Exeter between <strong>5.45–7.15pm</strong> and 
+            current member's subscription is <strong>£5 per week</strong> paid termly by 
+            electronic bank transfer. There’s also free parking on site.
+        </p>
+
+        <p>
+            If you are aged <strong>18+</strong> and would like to join us for a taster 
+            session or for more information please contact the Choir Membership Secretary, 
+            Fran, using the below.
+        </p>
+
+        <div class="contact-box">
+            <h3>Contact</h3>
+            <p>For information about joining us please email:</p>
+            <p>
+                <a href="mailto:exeter.hospiscare.choir@gmail.com">
+                    exeter.hospiscare.choir@gmail.com
+                </a>
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
